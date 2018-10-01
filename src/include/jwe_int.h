@@ -56,8 +56,8 @@ struct _cjose_jwe_recipient
 // JWE object
 struct _cjose_jwe_int
 {
-    json_t *hdr;        // header JSON object
-    json_t *shared_hdr; // shared header JSON object
+	cjose_header_t *hdr;        // header JSON object
+	cjose_header_t *shared_hdr; // shared header JSON object
 
     // _jwe_part_t part[5]; // the 5 compact JWE parts
 
