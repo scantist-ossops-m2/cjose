@@ -1,5 +1,6 @@
 # Release Notes #
 
+* disable RSA PKCS 1.5 by default ((https://github.com/OpenIDC/cjose/pull/22); thanks @thalman
 * avoid using empty prototypes; support Clang 15 and XCode 14.3
 * build shared library on Cygwin by adding -no-undefined to LDFLAGS
   (https://github.com/OpenIDC/cjose/pull/20); thanks @fd00
