@@ -1,5 +1,7 @@
 # Release Notes #
 
+<a name="v0.6.2.3"></a>
+## [v0.6.2.3](https://github.com/OpenIDC/cjose/compare/v0.6.2.2...v0.6.2.3)  (2024-04-24)
 * disable RSA PKCS 1.5 by default ((https://github.com/OpenIDC/cjose/pull/22); thanks @thalman
 * avoid using empty prototypes; support Clang 15 and XCode 14.3
 * build shared library on Cygwin by adding -no-undefined to LDFLAGS

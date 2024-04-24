@@ -213,7 +213,7 @@ static void _self_encrypt_self_decrypt(const char *plain1)
 #ifdef HAVE_RSA_PKCS1_PADDING
     _self_encrypt_self_decrypt_with_key(CJOSE_HDR_ALG_RSA1_5, CJOSE_HDR_ENC_A128GCM, JWK_RSA, plain1);
 #endif
-    
+
     _self_encrypt_self_decrypt_with_key(CJOSE_HDR_ALG_DIR, CJOSE_HDR_ENC_A128GCM, JWK_OCT_16, plain1);
 
     _self_encrypt_self_decrypt_with_key(CJOSE_HDR_ALG_RSA_OAEP, CJOSE_HDR_ENC_A192GCM, JWK_RSA, plain1);
@@ -367,7 +367,7 @@ static void _self_encrypt_self_decrypt_iv(const char *plain1)
 #ifdef HAVE_RSA_PKCS1_PADDING
     _self_encrypt_self_decrypt_with_key_iv(CJOSE_HDR_ALG_RSA1_5, CJOSE_HDR_ENC_A256GCM, JWK_RSA, 12, plain1);
 #endif
-    
+
     _self_encrypt_self_decrypt_with_key_iv(CJOSE_HDR_ALG_DIR, CJOSE_HDR_ENC_A256GCM, JWK_OCT_32, 12, plain1);
 
     _self_encrypt_self_decrypt_with_key_iv(CJOSE_HDR_ALG_DIR, CJOSE_HDR_ENC_A128CBC_HS256, JWK_OCT_32, 16, plain1);
@@ -981,7 +981,8 @@ START_TEST(test_cjose_jwe_decrypt_aes_gcm)
 
     const char *key = JWK_OCT_32;
     const char *plain1 = "Live long and prosper.";
-    char *compact1 = "eyJhbGciOiAiZGlyIiwgImVuYyI6ICJBMjU2R0NNIn0..Du_9fxxV-zrReaWC.aS_rpokeuxkaPc2sykcQDCQuJCYoww.GpeKGEqd8KQ0v6JNea5aSA";
+    char *compact1
+        = "eyJhbGciOiAiZGlyIiwgImVuYyI6ICJBMjU2R0NNIn0..Du_9fxxV-zrReaWC.aS_rpokeuxkaPc2sykcQDCQuJCYoww.GpeKGEqd8KQ0v6JNea5aSA";
     char *compact2 = "eyJhbGciOiAiZGlyIiwgImVuYyI6ICJBMjU2R0NNIn0..Du_9fxxV-zrReaWC.aS_rpokeuxkaPc2sykcQDCQuJCYoww.Gp";
 
     cjose_jwk_t *jwk = cjose_jwk_import(key, strlen(key), &err);
@@ -1015,17 +1016,17 @@ START_TEST(test_cjose_jwe_decrypt_aes_gcm)
 
     cjose_jwe_t *jwe2 = cjose_jwe_import(compact2, strlen(compact2), &err);
     ck_assert_msg(NULL != jwe2,
-                   "cjose_jwe_import failed: "
-                   "%s, file: %s, function: %s, line: %ld",
-                   err.message, err.file, err.function, err.line);
+                  "cjose_jwe_import failed: "
+                  "%s, file: %s, function: %s, line: %ld",
+                  err.message, err.file, err.function, err.line);
 
     uint8_t *plain3 = NULL;
     size_t plain3_len = 0;
     plain3 = cjose_jwe_decrypt(jwe2, jwk, &plain3_len, &err);
     ck_assert_msg(NULL == plain3,
-                   "cjose_jwe_decrypt succeeded where it should have failed: "
-                   "%s, file: %s, function: %s, line: %ld",
-                   err.message, err.file, err.function, err.line);
+                  "cjose_jwe_decrypt succeeded where it should have failed: "
+                  "%s, file: %s, function: %s, line: %ld",
+                  err.message, err.file, err.function, err.line);
 
     cjose_jwe_release(jwe2);
     cjose_jwk_release(jwk);
@@ -1135,7 +1136,7 @@ START_TEST(test_cjose_jwe_decrypt_rsa)
           "tUkTRclIfuEPmNsNDPbLoLqqCVznFbvdB7x-Tl-m0l_eFTj2KiqwGqE9PZ"
           "B9nNTwMVvH3VRRSLWACvPnSiwP8N5Usy-WRXS-V7TbpxIhvepTfE0NNo\" }" },
 #endif // HAVE_RSA_PKCS1_PADDING
-        
+
         { NULL, NULL, NULL }
     };
 

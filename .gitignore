@@ -56,3 +56,6 @@ test/*.trs
 cjose-*.tar.gz
 dist/
 /configure~
+/config.guess~
+/config.sub~
+/install-sh~

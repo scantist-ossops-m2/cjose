@@ -189,7 +189,8 @@ bool cjose_jwk_release(cjose_jwk_t *jwk)
         jwk->kid = NULL;
 
         // assumes freefunc is set
-        if (NULL != jwk->fns->free_func) {
+        if (NULL != jwk->fns->free_func)
+        {
             jwk->fns->free_func(jwk);
         }
         jwk = NULL;

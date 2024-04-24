@@ -649,12 +649,13 @@ static bool _cjose_jwe_encrypt_ek_rsa_padding(
 
 #ifndef HAVE_RSA_PKCS1_PADDING
     // prohibite RSA_PKCS1_PADDING because it is not safe
-    if (padding == RSA_PKCS1_PADDING) {
+    if (padding == RSA_PKCS1_PADDING)
+    {
         CJOSE_ERROR(err, CJOSE_ERR_CRYPTO);
         return false;
     }
 #endif // HAVE_RSA_PKCS1_PADDING
-    
+
     // encrypt the CEK using RSA v1.5 or OAEP padding
     if (RSA_public_encrypt(jwe->cek_len, jwe->cek, recipient->enc_key.raw, (RSA *)jwk->keydata, padding)
         != recipient->enc_key.raw_len)
@@ -703,7 +704,8 @@ static bool _cjose_jwe_decrypt_ek_rsa_padding(
 #ifndef HAVE_RSA_PKCS1_PADDING
     // prohibite RSA_PKCS1_PADDING because implementation are often vulnerable
     // See marvin attack
-    if (padding == RSA_PKCS1_PADDING) {
+    if (padding == RSA_PKCS1_PADDING)
+    {
         CJOSE_ERROR(err, CJOSE_ERR_CRYPTO);
         return false;
     }
