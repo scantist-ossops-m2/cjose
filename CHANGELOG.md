@@ -1,5 +1,7 @@
 # Release Notes #
 
+* fix memory allocation check (typo) in jwk.c (https://github.com/OpenIDC/cjose/security/code-scanning/2)
+
 <a name="v0.6.2.3"></a>
 ## [v0.6.2.3](https://github.com/OpenIDC/cjose/compare/v0.6.2.2...v0.6.2.3)  (2024-04-24)
 * disable RSA PKCS 1.5 by default ((https://github.com/OpenIDC/cjose/pull/22); thanks @thalman
